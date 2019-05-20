@@ -136,10 +136,38 @@ class GeneticAgent():
 
         
     
-    #  sorts individuals from largest fitness to smallest fitness
+    """
+    Sorts individuals from largest fitness to smallest fitness
+    """
     def sort_individuals(self):
         self.individuals.sort(key=lambda b: b.fitness_value, reverse=True)
         self.individuals_sorted = True
+
+
+
+
+
+    """
+    A helper function for creating a randomly initialized individual
+    (Neural network weights are random)
+    """
+    def create_random_individual(self):
+        return Individual(self.input_size, self.output_size, self.use_crafted_features)
+
+
+    
+    """
+    A helper function for replacing neural network parameters of individual with new ones
+    """
+    def replace_individual_params(self, individual, new_params):
+        individual.network.update(new_params)
+
+
+
+
+
+
+
 
     
     """
@@ -179,20 +207,26 @@ class GeneticAgent():
 
 
 
-
     """
+        Select N best individuals of the generation (N = self.selection_size)
+        Invididuals are sorted by their fitness values
+        from greatest to lowest
+
         select self.selection_size amount of individuals for next generation
-    next_individuals[0:self.selection_size] will be selected by this function
-    
-        Select N best individuals of the generation
+        will be selected by this function
     """
     def selection(self):
         selected_individuals = [0] * self.selection_size
 
         """
+        YOUR CODE START
         Fill the list selected_individuals 
         """
 
+        
+        """
+        YOUR CODE END
+        """
         return selected_individuals
 
 
@@ -200,19 +234,25 @@ class GeneticAgent():
 
 
     """
-        next_individuals[self.selection_size : self.selection_size+self.crossover_size] 
-    will be selected by this function
+
+
+        individuals[self.selection_size : self.selection_size+self.crossover_size] 
+        will be selected by this function
     """
     def crossover(self):
         crossed_individuals = [0] * self.crossover_size
         
         """
+        YOUR CODE START
         Fill the list crossed individuals
         """
+      
         for i in range(self.crossover_size):
             pass
 
-
+        """
+        YOUR CODE END
+        """
         return crossed_individuals
 
 
